@@ -7,6 +7,7 @@ import EmailIcon from '@mui/icons-material/Email';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import Typed from 'typed.js';
 import pic from "./img/pic.jpeg"
+import { Button } from "@mui/material";
 function Home(){
     const el = React.useRef(null);
     React.useEffect(() => {
@@ -24,6 +25,20 @@ function Home(){
         typed.destroy();
       };
     }, []);
+    const onButtonClick = () => {
+      // using Java Script method to get PDF file
+      fetch('Resume.pdf').then(response => {
+          response.blob().then(blob => {
+              // Creating new object of PDF file
+              const fileURL = window.URL.createObjectURL(blob);
+              // Setting various property values
+              let alink = document.createElement('a');
+              alink.href = fileURL;
+              alink.download = 'Resume.pdf';
+              alink.click();
+          })
+      })
+  }
   return(
 
     <div>
@@ -44,7 +59,9 @@ function Home(){
         <Link to="https://www.whatsapp.com/"><WhatsAppIcon/></Link>
              
           </div>
-        <Link to="/" className="btn">Download CV</Link>
+          <div style={{margin:"30px"}} className="but">
+        <Button onClick={onButtonClick} className="btn" style={{background: "#0ef"}} >Download CV</Button>
+        </div>
         </div>
          <div className="home-img">
           <img src={pic} alt="" className="mypic"/>

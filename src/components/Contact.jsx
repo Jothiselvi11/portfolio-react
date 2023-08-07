@@ -5,6 +5,7 @@ import React from "react";
 //     MDBBtn
 //   } from 'mdb-react-ui-kit';
 import emailjs from "emailjs-com";
+import Header from "./Header";
 
 
 function Contact(){
@@ -20,22 +21,24 @@ function Contact(){
         })
     }
   
-    return (
+    return (<div>
+       <Header/>
         <div className="contact">
             <h1 className="cname">
                 Contact form
             </h1>
             <form className="cform" onSubmit={sendEmail}>
                 <label>Name</label>
-                <input type="text" name="name"/>
+                <input type="text" name="name" placeholder="name"/>
 
                 <label>Email</label>
-                <input type="email" name="user_email"/>
+                <input type="email" name="user_email" placeholder="email"/>
 
                 <label>Message</label>
-                <textarea name="message" rows="4"/>
-                <input type="submit" value="send"/>
+                <textarea name="message" rows="4" placeholder="message"/>
+                <input type="submit" value="send" className="send"/>
             </form>
+        </div>
         </div>
       );
   

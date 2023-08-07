@@ -1,8 +1,12 @@
 import React from "react";
+import Header from "./Header";
 
 function About(){
   return(
+    <div>
+    <Header/>
     <div className="aboutme">
+
     <h1 className="ahead">About Me</h1>
     <p className="phead">I am an organised and efficient person with an enquiring mind.
 I am a flexible person seeking employment which will allow development, growth and make use of my existing skills.
@@ -21,6 +25,7 @@ I am an organised, efficient and hard working person, and am willing to discover
 I am a good listener and learner, able to communicate well with a group and on an individual level.
 I am able to motivate and direct my talents and skills to meet objectives.
 </p>
+</div>
 </div>
   )
 }
